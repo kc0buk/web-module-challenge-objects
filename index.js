@@ -7,11 +7,20 @@ const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakf
 /* Task 1a: write a function to return more menu items with the same format as the items above. */
 
 function createMenuItem(name, cost, category){
-    /* Code here */
+    varName = {},
+    varName.name = name;
+    varName.price = cost;
+    varName.category = category;
+    return varName;
 }
+
+console.log(createMenuItem('Cesar Salad', 15, 'Dinner'));
 
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
 
+console.log(createMenuItem('Poke Bowl', 18, 'Lunch'));
+console.log(createMenuItem('New York Cheescake', 8, 'Dessert'));
+console.log(createMenuItem('Americano', 3, 'Drinks'));
 
 
 /* Task 2: You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to your burger object that automatically calculates price given a string as a parameter. 
@@ -24,7 +33,19 @@ and should return a number.
 
 For example, burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2*/
 
+burger.discount = function(discount) {
+    switch(discount) {
+      case 'student':
+      case 'teacher':
+        discountPrice = this.price * .75;
+        break;
+        case 'public':
+          discountPrice = this.price * .9;
+    }
+    return discountPrice;
+  }
 
+console.log(burger.discount('student'));
 
 ///////////////Reviews (MVP)///////////////////
 
@@ -40,11 +61,16 @@ const reviews = [{name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and
 
 /* Task 4: Console.log just Julius' feedback */
 
+console.log(reviews[5].feedback);
 
 /* Task 5: Add a new rating with your (fictitious) opinions of the restaurant in the same format as the reviews above. */
 
+reviews.push({name: "Dan", rating: 4, feedback: "Guess the place was decent. Will prob give them another shot."});
+// console.log(reviews);
 
-/* Task 6: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
+/* Task 6: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays" */
+
+re
 
 /*  Task 7: Write a function to return a review based on the index of the review in the array.
 
