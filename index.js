@@ -135,23 +135,20 @@ console.log(getLastReview(reviews));
 
  function getReviewByRating(array,rating) {
   const newArray = [];
-  // let count = 0;  
-    for (let i = 0; i < array.length - 1; i++) {
+    for (let i = 0; i < array.length - 1; i++) { // find ratings that match the criteria
         if (array[i].rating >= rating && array[i].rating < rating +1) {
-          // count = count +1;
           newArray.push(array[i]);
-        // } else if (array[i].rating > rating || array[i].rating > rating -1){
-        //   count = count;
-        // } else {
-        //   return `No results`;
-        } 
         }
+      }   
+    
+      if (newArray.length < 1) {
+      return `No results`; // error handling if no results, otherwise return NewArray
+    } else {
       return newArray;
     }
+  }
 
-   
-
-console.log(getReviewByRating(reviews, 3));
+console.log(getReviewByRating(reviews, 1));
   
 /** STRETCH 2: Write a function called 'getLongestReview' that returns an array containing all reviews longer than 15 words. 
   
@@ -188,8 +185,26 @@ The returned object should have the following characteristics:
          (2) returns the updated value of the `odometer`.
 */
 
+const newODO = {};
 
-function carMaker(/* code here */) {
-    /* code here */
-    
+function carMarker(miles) {
+  newODO.odometer = miles;
+  // distance = miles;
+  const drive = function(distance) {
+    miles = distance;
+    newODO.newOdometer = miles + distance;
+    // console.log(newODO);
+    return {drive:newOdometer};
+  }    
+  return newODO;
 }
+
+// function drive(distance) {
+//   miles = distance;
+//   newODO.newOdometer = miles + distance;
+//   // console.log(newODO);
+//   return newODO.newOdometer;
+// }
+
+console.log(carMarker(100));
+// newODO.drive(50);
