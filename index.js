@@ -6,19 +6,23 @@ const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakf
 
 /* Task 1a: write a function to return more menu items with the same format as the items above. */
 
-function createMenuItem(name, cost, category){
-    varName = {},
-    varName.name = name;
-    varName.price = cost;
-    varName.category = category;
-    return varName;
+// function createMenuItem(name, cost, category){
+//     varName = {},
+//     varName.name = name;
+//     varName.price = cost;
+//     varName.category = category;
+//     return varName;
+// }
+
+function createMenuItem (name, price, category) {
+  return {name, price, category};
 }
 
 console.log(createMenuItem('Cesar Salad', 15, 'Dinner'));
 
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
 
-console.log(createMenuItem('Poke Bowl', 18, 'Lunch'));
+console.log(createMenuItem('Poke Bowl', 16, 'Lunch'));
 console.log(createMenuItem('New York Cheescake', 8, 'Dessert'));
 console.log(createMenuItem('Americano', 3, 'Drinks'));
 
@@ -65,8 +69,13 @@ console.log(reviews[5].feedback);
 
 /* Task 5: Add a new rating with your (fictitious) opinions of the restaurant in the same format as the reviews above. */
 
+// function addNewReview (array,name,rating,feedback) {
+//   array.push({name,rating,feedback});
+//   return array;
+// }
+
 reviews.push({name: "Dan", rating: 4, feedback: "Guess the place was decent. Will prob give them another shot."});
-// console.log(reviews);
+// console.log(addNewReview(reviews, 'Dan', 4, 'Guess the place was decent. Will prob give them another shot.'));
 
 /* Task 6: Add the following feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays" */
 
@@ -124,10 +133,25 @@ console.log(getLastReview(reviews));
     {name:"Lauren", rating: 4, feedback: "Absolutely love that they have karaoke Fridays! Food and drink selection is okay."}]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
-  }
+ function getReviewByRating(array,rating) {
+  const newArray = [];
+  // let count = 0;  
+    for (let i = 0; i < array.length - 1; i++) {
+        if (array[i].rating >= rating && array[i].rating < rating +1) {
+          // count = count +1;
+          newArray.push(array[i]);
+        // } else if (array[i].rating > rating || array[i].rating > rating -1){
+        //   count = count;
+        // } else {
+        //   return `No results`;
+        } 
+        }
+      return newArray;
+    }
 
+   
+
+console.log(getReviewByRating(reviews, 3));
   
 /** STRETCH 2: Write a function called 'getLongestReview' that returns an array containing all reviews longer than 15 words. 
   
